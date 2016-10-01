@@ -1,0 +1,14 @@
+body {
+  background-image: url("../img/lale.jpg");
+  background-repeat: repeat;
+  background-attachment: fixed;
+  background-position: right bottom;
+  color: #eee;
+  font-size: 1.4rem;
+}
+a {
+  color: #eee
+}
+a:visited {
+  color: #cbf
+}

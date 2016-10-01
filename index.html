@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="author" content="H.N">
+<meta name="viewport" content="width=device-width">
+<title>Lale (Tulip)</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"></link>
+<link rel="stylesheet" href="css/lale.css"></link>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mithril/0.2.1/mithril.min.js"></script>
+</head>
+<body>
+<script>
+var page = {};
+page.view = function() {
+  return m("div", {class: "container"},[
+    m("h3", "Lale (Tulip)"),
+    m("small", "~Warmth and Smiles~"),
+    m("div", [
+      page.vm.list.map(function(item, i) {
+        return [
+          m("h5", item.title),
+          m("ul", [item.urls.map(function(url, j) {
+            return m("li", [
+              m("a", {href: url.url}, url.name)
+            ])
+          })
+        ])]
+      })
+    ])
+  ])
+};
+page.vm = (function() {
+  var vm = {};
+  vm.init = function() {
+    vm.list = [
+      {title: "暖かい生活", urls: [
+        {name: "いますぐ身体を温かくする３つの方法", url: "http://hontonano.jp/hienai/06_imasugu_01.html"},
+        {name: "寒くなった体を今すぐ温かくする方法", url: "http://matome.naver.jp/odai/2135338087355288601"},
+        {name: "最近寒すぎ！ちょっとだけ暖かくなる方法", url: "http://matome.naver.jp/odai/2135014116478571001"},
+      ]},
+      {title: "健康のために", urls: [
+        {name: "風邪の治し方 症状別の対処", url: "http://utuyoiro.net/1751.html"},
+        {name: "喉の痛みを治す方法", url: "http://nazenani-komichi.net/655.html"},
+        {name: "風邪の症状「喉の痛み」の対処法", url: "http://www.skincare-univ.com/article/008941/"},
+        {name: "かぜに効くツボ", url: "http://benza.jp/anti-cold/easy/index.html"},
+        {name: "紀州の名湯・花山温泉", url: "http://www.hanayamaonsen.com"},
+      ]},
+      {title: "こころ温まる話", urls: [
+        {name: "kokoro堂 いい話", url: "http://kokorodo.net/tag/e_tag-1"},
+        {name: "【泣ける】マジで感動するコピペ【いい話】", url: "http://matome.naver.jp/odai/2135999206239029501"},
+        {name: "絶対に笑える面白い話ベスト50選（まとめ）", url: "http://ailovei.com/?p=26114"},
+      ]},
+    ];
+  };
+  return vm;
+})();
+page.controller = function() {
+  page.vm.init();
+};
+m.mount(document.body, {controller: page.controller, view: page.view});
+</script>
+</body>
+</html>
